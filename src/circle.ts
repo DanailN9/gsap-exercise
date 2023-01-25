@@ -11,29 +11,21 @@ const app = new PIXI.Application({
     backgroundColor: 0x999999
 });
 
-const circle = new PIXI.Graphics();
-circle.beginFill(0x000000);
-circle.drawCircle(0, 0, 50);
-circle.endFill();
-circle.x = 100;
-circle.y = 100;
-app.stage.addChild(circle);
+const circle = createCircles(100, 100);
+const circleOne = createCircles(100, 300);
+const circleTwo = createCircles(100, 500);
 
-const circleOne = new PIXI.Graphics();
-circleOne.beginFill(0x000000);
-circleOne.drawCircle(0, 0, 50);
-circleOne.endFill();
-circleOne.x = 100;
-circleOne.y = 300;
-app.stage.addChild(circleOne);
+function createCircles(x, y) {
+    const circle = new PIXI.Graphics();
+    circle.beginFill(0x000000);
+    circle.drawCircle(0, 0, 50);
+    circle.endFill();
+    circle.x = x;
+    circle.y = y;
+    app.stage.addChild(circle);
 
-const circleTwo = new PIXI.Graphics();
-circleTwo.beginFill(0x000000);
-circleTwo.drawCircle(0, 0, 50);
-circleTwo.endFill();
-circleTwo.x = 100;
-circleTwo.y = 500;
-app.stage.addChild(circleTwo);
+    return circle;
+}
 
 document.body.appendChild(app.view as HTMLCanvasElement);
 
